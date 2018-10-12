@@ -4,7 +4,7 @@ console.log('App.js is running!');
 
 var app = {
 	title: 'Indecision App',
-	subtitle: 'Put your life in the hands of God',
+	subtitle: 'Put your life in the hands of a computer',
 	options: []
 };
 
@@ -25,6 +25,11 @@ var removeAll = function removeAll() {
 	renderOptions();
 };
 
+var onMakeDecision = function onMakeDecision() {
+	var randomNum = Math.floor(Math.random() * app.options.length);
+	var option = app.options[randomNum];
+	alert(option);
+};
 var appRoot = document.getElementById('app');
 
 var renderOptions = function renderOptions() {
@@ -47,9 +52,9 @@ var renderOptions = function renderOptions() {
 			app.options.length > 0 ? 'Here are your options' : 'No options'
 		),
 		React.createElement(
-			'p',
-			null,
-			app.options.length
+			'button',
+			{ disabled: app.options.length === 0, onClick: onMakeDecision },
+			'What should I do?'
 		),
 		React.createElement(
 			'button',
