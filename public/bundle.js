@@ -86,19 +86,27 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 
 
+var _react = __webpack_require__(1);
 
-const template = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement('p', {}, 'testing 123');
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(template, document.getElementById('app'));
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var template = _react2.default.createElement(
+  'p',
+  null,
+  'THIS IS JSX FROM WEBPACK'
+);
+_reactDom2.default.render(template, document.getElementById('app'));
 
 /***/ }),
 /* 1 */
