@@ -1,54 +1,39 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 export default class TvShowForm extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			value: '',
-			listData: []
-		};
-
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+	state = {
+		movieId: tt3222784,
+		title: ""
 	}
+
 	componentDidMount() {
-		this.handleSubmit();
-	}
-	handleChange(event) {
-		this.setState({
-			value: event.target.value
-		});
+		this.loadMovie()
 	}
 
-	handleSubmit() {
-		const ids = [1, 2, 3, 4, 5];
-
-		let listData = [];
-		ids.forEach(id => 
-			fetch("https://www.omdbapi.com/?t=Silicon%20Valley&Season=1" + id)
-				.then(resp => resp.json())
-				.then(show => {
-					listData.push(show);
-				})
-				.catch(err => console.log(err))
-		);
-
-		this.setState({
-			listData: listData.sort((a, b) => a - b)
-		})
+	loadMovie() {
+		axios.get(`http://www.omdbapi.com/?t=Silicon%20Valley&Season=1=${this.state.movieId}`)
+			.then(response => {
+				this.setState({movie: response.data});
+			})
+			.catch(error => {
+				console.log('Oops!', error.message);
+			})
 	}
 
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.loadMovie}>
 					<label>
 						Name: 
-							<input type="text" value={this.state.value} onChange={this.handleChange} />
+						<input type="text" name="name" />
 					</label>
 					<input type="submit" value="Submit" />
+
 				</form>
+
 			</div>
-		)
+			)
 	}
 }
