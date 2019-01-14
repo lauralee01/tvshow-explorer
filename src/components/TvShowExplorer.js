@@ -7,9 +7,9 @@ export default class TvShowExplorer extends Component {
 		const title = 'A TvShow-Explorer';
 		return (
 			<div>
-			<Header title={title}/>
-			<TvShowForm />	
-		</div>
+				<Header title={title}/>
+				<TvShowForm />	
+			</div>
 		)
 		
 	}
